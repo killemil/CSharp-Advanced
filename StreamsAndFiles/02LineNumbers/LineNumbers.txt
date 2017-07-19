@@ -1,0 +1,33 @@
+1 using System;
+2 using System.Collections.Generic;
+3 using System.IO;
+4 using System.Linq;
+5 using System.Text;
+6 using System.Threading.Tasks;
+7 
+8 namespace _02LineNumbers
+9 {
+10     public class LineNumbers
+11     {
+12         public static void Main()
+13         {
+14             StreamReader reader = new StreamReader("../../LineNumbers.cs");
+15             StreamWriter writer = new StreamWriter("../../LineNumbers.txt");
+16 
+17             using (reader)
+18             {
+19                 string line = reader.ReadLine();
+20                 int lineNumber = 1;
+21                 using (writer)
+22                 {
+23                     while (line != null)
+24                     {
+25                         writer.WriteLine($"{lineNumber} {line}");
+26                         lineNumber++;
+27                         line = reader.ReadLine();
+28                     }
+29                 }
+30             }
+31         }
+32     }
+33 }
